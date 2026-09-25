@@ -2,7 +2,7 @@ import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common'
 import { CategoryService } from './category.service';
 import { Category } from './category.entity';
 import { CreateCategoryDto } from './dto/create-category.dto';
-import { UpdateCategoryDto } from './dto/update-category.dto';
+
 
 @Controller('categories')
 export class CategoryController {
@@ -23,13 +23,13 @@ export class CategoryController {
     return this.categoryService.create(createCategoryDto);
   }
 
-  @Put(':id')
-  async updateCategory(
-    @Param('id') id: number,
-    @Body() updateCategoryDto: UpdateCategoryDto
-  ): Promise<Category | null> {
-    return this.categoryService.update(id, updateCategoryDto);
-  }
+  // @Put(':id')
+  // async updateCategory(
+  //   @Param('id') id: number,
+  //   @Body() updateCategoryDto: UpdateCategoryDto
+  // ): Promise<Category | null> {
+  //   return this.categoryService.update(id, updateCategoryDto);
+  // }
 
   @Delete(':id')
   async deleteCategory(@Param('id') id: number): Promise<void> {
